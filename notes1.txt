@@ -1,0 +1,51 @@
+
+following steps on:
+https://gist.github.com/iffy/0ff845e8e3f59dbe7eaf2bf24443f104
+
+clone and run:
+$ git clone https://github.com/zootella/tortuga
+$ cd tortuga
+$ npm install
+$ npm run start
+
+build:
+$ npm run step4
+
+copy:
+make wwwroot folder alongside dist, and copy all the files (not the subfolders) there
+
+start server:
+$ node_modules/.bin/http-server wwwroot/ -p 8080
+
+download and install:
+http://127.0.0.1:8080/tortuga%20Setup%201.0.0.exe
+
+rebuild:
+Update the version in package.json.
+$ npm run step4
+copy over the new files from dist to wwwroot
+
+run:
+open the installed version of the app and see that it updates itself
+
+
+
+
+
+next steps
+>win
+flip nsis back to per user rather than per machine
+go through the sample to simplify and understand it
+>mac
+watch tortuga autoupdate on mac
+>ara
+try building and installing ara with electron-builder for win/mac/linux to joe
+
+
+
+
+
+
+
+
+

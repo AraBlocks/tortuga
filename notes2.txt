@@ -1,0 +1,685 @@
+
+
+
+
+
+
+==create project from scratch
+
+$ node --version, v10.11.0
+$ npm --version, 6.4.1
+
+create a new repository on github.com
+
+$ git clone https://github.com/zootella/tortuga
+$ cd tortuga
+$ npm init
+$ npm install -S name
+
+
+
+
+==install and size dependencies
+
+installing them individually to see what the damage is
+
++ jquery@3.4.1
+added 1 package from 1 contributor and audited 1 package in 0.975s
+node_modules has 1 folder and 1mb
+
++ vue@2.6.10
+added 1 package from 1 contributor and audited 1 package in 0.797s
+node_modules has 1 folder and 3mb
+
++ chokidar@3.0.1
+added 15 packages from 17 contributors and audited 20 packages in 1.139s
+node_modules has 15 folders and 3mb
+
+$ npm install -D electron
+
++ electron@5.0.4
+added 145 packages from 141 contributors and audited 201 packages in 12.627s
+node_modules has 134 folders and 149mb
+the electron folder is the majority of this size: 143mb electron, 149mb node_modules
+
+note how most of the modules and megabytes are for electron, which is a dev dependency
+if it does things correctly, just jquery, vue, chokidar, and the 15 chokidar needs should get packaged for install
+
+ok now you're installing them all, not just one at a time
+
+  "dependencies": {
+    "chokidar": "^3.0.1",
+    "jquery": "^3.4.1",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "electron": "^5.0.4"
+  }
+
+node_modules has 151 folders and 153mb
+
+
+
+
+==check path depth and nested node_modules folders
+
+$ node ./scripts/path-check.js node_modules
+
+	8 paths at 2 node_modules deep:
+
+	C:\Documents\g1\tortuga\node_modules\concat-stream\node_modules contains (isarray, readable-stream, string_decoder)
+	C:\Documents\g1\tortuga\node_modules\extract-zip\node_modules contains (debug, ms)
+	C:\Documents\g1\tortuga\node_modules\find-up\node_modules contains (path-exists)
+	C:\Documents\g1\tortuga\node_modules\mkdirp\node_modules contains (minimist)
+	C:\Documents\g1\tortuga\node_modules\nugget\node_modules contains (debug, ms)
+	C:\Documents\g1\tortuga\node_modules\resolve\test\resolver\symlinked\_\node_modules this is just a test or something, ignoring here
+	C:\Documents\g1\tortuga\node_modules\sumchecker\node_modules contains (debug, ms)
+	C:\Documents\g1\tortuga\node_modules\tough-cookie\node_modules contains (punycode)
+
+	The longest path is 132 characters:
+
+	C:\Documents\g1\tortuga\node_modules\electron\dist\resources\inspector\accessibility_test_runner\accessibility_test_runner_module.js
+
+	0 paths at more than 150 characters
+	0 paths at more than 200 characters
+	0 paths at more than 260 MAX_PATH characters
+
+	478 folders
+	2,119 files
+	160,857,393 bytes
+
+checking out why those 8 went two modules deep
+$ node ./scripts/module-search
+
+Searching for readable-stream...
+
+needs "readable-stream" version "~1.1.9" in node_modules\through2\package.json
+is    "readable-stream" version "1.1.14" in node_modules\readable-stream\package.json
+
+needs "readable-stream" version "^2.2.2" in node_modules\concat-stream\package.json
+is    "readable-stream" version "2.3.6" in node_modules\concat-stream\node_modules\readable-stream\package.json
+
+so that makes sense: somebody needs through2, so it goes in node_modules
+through2 needs readable-stream 1.1.x, so 1.1.14 goes in node_modules
+but then also, concat-stream needs readable stream 2.x
+so npm puts 2.3.6 in a nested node_modules beneath concat-stream
+
+
+
+==bring in the electron getting started code
+
+https://electronjs.org/docs/tutorial/first-app
+
+in package.json
+
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+
+added code to
+
+	main.js
+	index.html
+
+$ npm run start
+
+"This is Tortuga
+We are using node 12.0.0, Chrome 73.0.3683.121, and Electron 5.0.4."
+
+and you can see that it's running local electron, not global electron, because
+$ electron .
+runs it saying node 12.0.0, Chrome 73.0.3683.119, and Electron 5.0.0.
+because you installed electron globally a few weeks ago when it was just 5
+
+
+
+
+==electron-packager
+
+ok, now let's build it for windows
+start with build-dev-win.sh
+which uses electron-packager
+
+https://github.com/electron-userland/electron-packager
+
+"Electron Packager is a command line tool and Node.js library that bundles Electron-based application source code with a renamed Electron executable and supporting files into folders ready for distribution.
+
+For creating distributables like installers and Linux packages, consider using either Electron Forge (which uses Electron Packager internally), or one of the related Electron tools, which utilizes Electron Packager-created folders as a basis."
+
+https://github.com/electron-userland/electron-packager#distributable-creators
+and that's where electron-winstaller is listed
+
+where is electron-packager in electron forge?
+
+https://www.electronforge.io/
+doesn't mention it
+https://github.com/electron-userland
+pins it
+
+$ npm install -D electron-packager
++ electron-packager@13.1.1
+added 64 packages from 41 contributors and audited 564 packages in 7.272s
+
+now node_modules has 196 folders and 157mb
+and, you've got electron-osx-sign, but don't yet have electron-builder
+
+"Building an Electron app for the Windows target platform requires editing the Electron.exe file. Currently, Electron Packager uses node-rcedit to accomplish this."
+https://www.npmjs.com/package/rcedit
+
+
+
+the dot means here
+
+
+$ npm run build-dev-win
+
+./node_modules/.bin/electron-packager ./ --out=release/packaged --overwrite \
+--platform=win32 --arch=x64 \
+--icon=./scripts/ara.ico \
+--protocol=tortuga --protocol-name=Tortuga
+
+it pruned node_modules, chokidar, vue, and jquery are in there, all the electron ones aren't
+protocol and protocol name let you register a custom uri handler, but that didn't seem to work, not sure if we're using that, really want to accomplish that separately
+
+addign the flag --asar
+
+regular, asar
+
+
+
+tortuga0raw      158 MB (166,291,663 bytes)   2,850 Files,   668 Folders
+tortuga1blank    306 MB (321,052,102 bytes)   3,555 Files,   839 Folders
+tortuga2prune    306 MB (321,039,420 bytes)   3,553 Files,   839 Folders
+tortuga3asar     306 MB (321,062,472 bytes)   3,109 Files,   742 Folders
+tortuga4both     306 MB (321,062,488 bytes)   3,109 Files,   742 Folders
+tortuga5noprune  459 MB (481,992,172 bytes)   5,921 Files, 1,410 Folders
+
+none of them changed node_modules
+all of them took around 5 seconds
+
+packaged1blank   147 MB (154,760,439 bytes)   705 Files, 169 Folders
+packaged2prune   147 MB (154,754,098 bytes)   704 Files, 169 Folders
+packaged3asar    147 MB (154,777,152 bytes)   260 Files,  72 Folders
+packaged4both    147 MB (154,777,160 bytes)   260 Files,  72 Folders
+packaged5noprune 301 MB (315,700,482 bytes) 3,071 Files, 740 Folders
+
+ok, so prune doesn't do anything, but asar does
+this makes sense, but let's try no prune just to be sure
+
+so you just want asar
+
+
+swtiching to this so there really are very few packages
+chokidar brings 50 friends
+
+  "dependencies": {
+    "jquery": "^3.4.1",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "electron": "^5.0.4",
+    "electron-packager": "^13.1.1"
+  }
+
+tortuga               158 MB (165,995,287 bytes) 2,814 Files, 684 Folders weirdly changed a few bytes
+packaged1blank        147 MB (154,417,303 bytes)   624 Files, 150 Folders small size, many files
+packaged2noprune      300 MB (315,356,912 bytes) 2,990 Files, 721 Folders   big size, many files
+packaged3asar         147 MB (154,436,335 bytes)   260 Files,  72 Folders small size,  few files
+packaged4nopruneasar  300 MB (315,505,047 bytes)   260 Files,  72 Folders   big size,  few files
+
+what you learned
+packing happens by default, and the no pack tag makes it huge
+asar doesn't compress, it just combines and adds the index, which is great
+
+
+the entire . folder gets copied here:
+
+release\packaged\tortuga-win32-x64\resources\app\node_modules
+release\packaged\tortuga-win32-x64\resources\app\index.html
+release\packaged\tortuga-win32-x64\resources\app\package.json
+
+so, you need to ignore anything that's in . but that you don't want to end up there
+
+
+
+
+https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#ignore
+absolute paths, so not easy to use
+
+
+
+
+
+
+
+look for chromium-pickle-js/lib
+
+
+
+
+
+
+==Electron Installer
+
+
+https://github.com/electron/windows-installer
+https://medium.com/@dhankuwarsisodiya/electron-winstaller-the-windows-installer-for-electron-1b101c3255bd
+$ npm install -D electron-winstaller
+DEBUG=electron-windows-installer:main node tasks/electron-winstaller.js
+
+
+
+
+==Electron Builder
+
+electron-packager and electron-builder appear to be peers that work well together in electron forge/userland
+you can't find instructions to use electron-builder manually, but will install -D and then do settings here:
+https://www.electron.build/configuration/configuration
+
+
+
+looks like electron builder will do (and use) packager itself
+you may want to have builder run the whole show for you
+
+for icons, you can specify a png, see if it takes it and makes it cross platform for you, that would be great
+
+
+https://www.electron.build/icons
+
+
+
+
+
+
+
+"nsis"
+• building        target=nsis file=dist\tortuga Setup 1.0.0.exe archs=x64 oneClick=true perMachine=false
+
+win7: quick install with progress bar
+C:\Users\Use\AppData\Local\Programs\tortuga\tortuga.exe
+uninstall in add or remove programs
+
+win10: no security warning, but maybe the flag gets set when a browser downloads the exe
+shows up at the top of recently added
+control panel, apps and features, modify is grayed, uninstall, now you get yellow "Do you want this app from an unknown publisher to make changes to your device" and then works fine
+
+"portable"
+• building        target=portable file=dist\tortuga 1.0.0.exe archs=x64
+
+win7: wow, somehow it's *all* in a .exe, not even a folder of multiple files!
+so that's cool, but to do crossplatform portable you probably want 7z and then roll your own
+
+win10: slow to load the first time, but maybe that's just vmware
+yeah probably loads slower
+can pin to taskbar, but then clicking that says hte location has been changed or removed, so not sure where portable is really running from, it may be expanding to some temp location and then running from there
+
+"zip"
+• building        target=zip arch=x64 file=dist\tortuga-1.0.0-win.zip
+
+win7: unzip unzips it pretty fast
+this is what you thought portable would be, an exe in a folder of files
+
+win10: unzips pretty quickly
+runs without security warning
+windows explorer right click pin to start works
+
+"7z"
+• building        target=7z arch=x64 file=dist\tortuga-1.0.0-win.7z
+
+win7: you actually get a 7z file which is smaller than zip, but you actually need 7zip to unzip it
+
+win10: works the same as zip
+
+"msi"
+• building        target=MSI arch=x64 file=dist\tortuga 1.0.0.msi
+
+win7: a lot of pause before quick progress bar, some "gathering required information" nonsense
+C:\Users\Use\AppData\Local\Programs\tortuga\tortuga.exe
+add or remove also has Change and Repair buttons that just run the program
+
+win10: installs pretty quickly, dumps you right into the app, sitting on start menu under recently added
+C:\Users\Use\AppData\Local\Programs\tortuga\tortuga.exe
+in apps and features, has Modify and Uninstall buttons, modify just runs it, unisntall works
+
+"squirrel"
+• building        target=Squirrel.Windows arch=x64 file=dist\squirrel-windows\tortuga Setup 1.0.0.exe
+
+win7: right away pops box to install .net 4.5
+superweird: runs tortuga in the background, then you get this green atom animated gif with no border, then restarts tortuga
+or i guess just replace that with your own animated gif
+nothing on the start menu, so that's a problem for win7, you'll see how it behaves in win10
+C:\Users\Use\AppData\Local\tortuga\tortuga.exe
+C:\Users\Use\AppData\Local\tortuga\Update.exe
+
+win10: no .net box
+first you get the green animated gif that's probably from electron
+then behind that tortuga's electron window loads
+then that closes and then the green animated gif comes back
+and then you get the second tortuga window and the animated gif goes away
+(maybe because there's a command line option to the first one that would make you not show your window, and maybe you can customize the animaged gif)
+ugh, not on recently added, that's a problem
+
+there's a bunch of tortuga and squirrel stuff in name/appdata/local (not programs)
+C:\Users\Use\AppData\Local\SquirrelTemp\SquirrelSetup.log
+C:\Users\Use\AppData\Local\tortuga\app-1.0.0\tortuga.exe
+
+after install, shows up in add or remove programs, but not with icon
+yellow warning for update.exe
+pops tortuga, again probably needing to notice and respond to a command line message
+but then closes and does go away
+
+
+
+
+here are all the windows targets you tried out
+      "target": [
+        "nsis",
+        "portable",
+        "zip",
+        "7z",
+        "msi",
+        "squirrel"
+      ]
+
+delete node_modules, clear package.json dependencies sections, then do this:
+
+  "devDependencies": {
+    "electron": "^5.0.6",
+    "electron-builder": "^20.44.4"
+  }
+  "dependencies": {
+    "chokidar": "^3.0.2",
+    "electron-updater": "^4.0.14",
+    "jquery": "^3.4.1",
+    "vue": "^2.6.10"
+  },
+
+and then run builder which runs packager:
+
+$ npm install, runs post build step and says no native production dependencies
+$ npm run start
+$ npm run dist
+
+makes a dist folder
+running dist again ignores the dist folder
+
+
+    "step1": "electron-builder --dir",
+    "step2": "electron-builder",
+    "step3": "electron-builder --publish always"
+
+1 is a subset of 2
+and 2 and 3 have the same number of files
+so you can probably just call electron-builder, step2 for everything
+
+
+
+==electron-updater
+
+so here's the lineage you're using
+electron forge, which is
+electron-builder, which uses:
+electron-packager
+electron-updater
+
+https://www.electronforge.io/
+https://github.com/electron-userland/electron-forge
+https://github.com/electron-userland
+https://github.com/electron-userland/electron-packager 37,084 weekly
+https://github.com/electron-userland/electron-builder  83,702 weekly
+https://www.electron.build/
+https://www.electron.build/auto-update
+https://www.npmjs.com/package/electron-updater 28,278 weekly
+
+"This module allows you to automatically update your application. You only need to install this module and write two lines of code! To publish your updates you just need simple file hosting, it does not require a dedicated server."
+
+https://www.electron.build/configuration/publish
+
+found some example electron-builder.yml files:
+https://github.com/Azure/BatchExplorer/blob/master/electron-builder.yml
+https://github.com/codeforscience/sciencefair/blob/master/electron-builder.yml
+https://github.com/Microsoft/VoTT/blob/master/electron-builder.yml
+
+https://www.freecodecamp.org/news/quick-painless-automatic-updates-in-electron-d993d5408b3a/
+pretty bad
+
+https://gist.github.com/iffy/0ff845e8e3f59dbe7eaf2bf24443f104
+potentially better
+
+and at last found the official one:
+https://www.electron.build/auto-update
+https://github.com/iffy/electron-updater-example
+https://gist.github.com/iffy/0ff845e8e3f59dbe7eaf2bf24443f104
+
+
+
+
+
+tortuga may be working, actually
+go into vmware and actually install it, then run it
+the error is it can't find dev-app-update.yml next to where it's running
+not on the webserver
+maybe on the webserver it only needs latest.yml, for instance
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+bookmark
+next steps:
+try a default build of afm using electron-builder to see size and time
+do the next step getting tortuga to use squirrel properly, customizing animated gif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+check these all out in win10 test image to see unsigned security warning nonsense/blocking
+
+figure out your strategy for ara, something like:
+for right now, electron builder squirrel
+once you've got your own automatic update, leave squirrel behind for nsis and 7z xplatform portable
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+check out electron's alternative way to do automatic updates
+https://github.com/electron/update-electron-app
+
+electron-packager's ignore flag is a mess, but what you could do is
+copy the stuff you want to package from the . directory to your own temp directory
+and then run electron packager showing it that folder
+right now you're bundling /scrips and everything in there
+ignore works on absolute paths, not relative ones, and ignoring scrips leaves it out everywhere in the tree, not just in the root
+
+how do you register a pluggable protocol on all the platforms and for all the different browsers?
+electron-packager has flags like:
+--protocol=tortuga --protocol-name=Tortuga
+but you're omitting them for now
+and also you'd want ui in the running app to query and register this
+
+you could roll your own ignore by copying the stuff you want to take to a new folder, and then calling electron-packager to that path
+
+joe says, use ncc to get all code into a single js file
+you like this idea too because then the portable and installed editions are just a few files, not thousands of files
+you can't find ncc already built into electron forge or packager
+ooh and then you'd be able to do electron refresh updates with diff
+this could be awesome for the node project, see if you can get it working
+
+later, bring in vue, and make a button counter and a clock
+
+later, bring in web3 and dat, and detect the native modules
+what file extension or package.json metadata can you search for to find native modules?
+
+build this and then write a medium post about it
+a good automatic update architecture would make updates easy without assuming the goals of the user, the application vendor, one or several app developers, and the corporation that runs the update server will necessarily continue to be aligned
+your electron autoupdate dream features:
+-works with the portable build
+-updates on electron refresh instantly and without restarting the process
+-only updates on user click after checking the news
+-submarine key in addition to code signing
+-http backed p2p distribution of software updates
+-text diff of update the user can review
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==map of ways electron apps automatically update
+
+
+
+
+
+
+
+
+(1) Provided by Electron
+
+https://electronjs.org/docs/api/auto-updater
+https://electronjs.org/docs/tutorial/updates
+https://github.com/electron/update.electronjs.org
+https://github.com/electron/update-electron-app
+
+this is electron's Main process autoUpdater
+only supports mac and windows
+on windows you have to install first, docs reccommend electron-winstaller to do this
+and all roads lead to squirrel
+https://github.com/Squirrel/Squirrel.Mac
+https://github.com/Squirrel/Squirrel.Windows
+
+if you're open source, you can use GitHub/Electron's update.electronjs.org
+so long as you do everything the github way, including doing github releases
+https://help.github.com/en/articles/creating-releases
+
+https://www.npmjs.com/package/update-electron-app, 1,255 weekly downloads, last publish 19 days ago
+
+(2) Provided by Electron Forge
+
+https://www.electronforge.io/
+https://github.com/electron-userland/electron-forge
+https://github.com/electron-userland
+https://github.com/electron-userland/electron-builder
+https://www.npmjs.com/package/electron-builder, 97,746 weekly downloads, last publish 1 day ago
+https://www.electron.build/auto-update
+https://yarnpkg.com/en/package/electron-updater
+https://www.npmjs.com/package/electron-updater, 25,618 weekly downloads, last publish 22 days ago
+
+provided as alternative to electron's built-in autoUpdater
+talks about squirrel on mac, NSIS on windows, and has a 'portable' option
+
+(3) What we're using now
+
+https://github.com/electron/windows-installer
+https://www.npmjs.com/package/electron-winstaller, 12,556 weekly downloads, last publish 4 months ago
+https://github.com/electron/windows-installer
+https://medium.com/@dhankuwarsisodiya/electron-winstaller-the-windows-installer-for-electron-1b101c3255bd
+https://www.christianengvall.se/electron-windows-installer/
+
+uses squirrel
+can't tell if electron-winstaller is a part of (1) or (2) above
+leads to NuGet/.npkg
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
