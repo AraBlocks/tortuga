@@ -23,7 +23,7 @@ $ npm run start
 
 Basic stuff everybody needs:
 
-- [ ] **setup:** installers for win/mac/linux, for individual local and non-admin users, know every path it deposits stuff, and uninstall
+- [ ] **setup:** installers for win/mac/linux, for individual local and non-admin users, know every path it deposits stuff, uninstall, and code signing instructions
 - [ ] **update:** update from your website, not a server you or someone else needs to run
 - [ ] **tray:** app shortcuts, start menu, taskbar/dock, system tray/mac menu
 - [ ] **minimize:** `_[]X`/mac traffic light
