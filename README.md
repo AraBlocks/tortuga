@@ -73,3 +73,5 @@ I've found CLI-generated projects and pipelines to be quite brittle.
 Encountering code a CLI generated a few months ago that no longer builds,
 it's often easiest to start over from scratch, running the CLI again, and then moving your code into the new fresh project.
 Growing your project from a simple boilerplate you can understand and from the start is much better.
+
+Check out Electron's list of [awesome boilerplates](https://github.com/sindresorhus/awesome-electron#boilerplates).
