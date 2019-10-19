@@ -15,6 +15,7 @@ You could probably even turn it into a book. 🤔
 
 ```
 $ git clone https://github.com/zootella/tortuga
+$ cd tortuga
 $ npm install
 $ npm run start
 ```
@@ -54,5 +55,21 @@ Intentionally avoiding:
 - webpack
 - live update
 
+## Opinion
 
+I love [boilerplates](https://github.com/electron/electron-quick-start) (rather than [CLIs](https://www.electronforge.io/)).
+The [Electron docs](https://electronjs.org/docs/tutorial/boilerplates-and-clis) say:
 
+> Electron development is unopinionated - there is no "one true way" to develop, build, package, or release an Electron application.
+
+but then also:
+
+> Especially for beginners, using a command line tool is likely to be helpful.
+
+*Totally disagree.*
+Boilerplates are much better for learning:
+you can see the code rather than having a CLI deliver a huge amount of complexity right from step one.
+I've found CLI-generated projects and pipelines to be quite brittle.
+Encountering code a CLI generated a few months ago that no longer builds,
+it's often easiest to start over from scratch, running the CLI again, and then moving your code into the new fresh project.
+Growing your project from a simple boilerplate you can understand and from the start is much better.
