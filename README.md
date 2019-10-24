@@ -31,6 +31,8 @@ Basic stuff everybody needs:
 - [ ] **html:** windows show html, images, and fonts you brought yourself
 - [ ] **startup:** run on startup, do this not as a service, run before login, get startup and shutdown events
 - [ ] **protocol:** query and register custom:// and file extensions, test as admin and not
+- [ ] **send to:** win ''Send To'' app shortcut, mac drag document onto dock icon
+- [ ] **drag:** drag files, folders, and text into a div
 - [ ] **instance:** single instance per running location, new launch from start/file extension/browser protocol forwards to running instance
 - [ ] **modes:** nonmodal, modal, and disappearing modal windows to let a menu stick out beyond the edges of the window
 - [ ] **vue:** change parts of a page with [Vue.js](https://vuejs.org/) and coalesce progress updates with [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame)
