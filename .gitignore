@@ -64,3 +64,6 @@ typings/
 release/
 dist/
 wwwroot/
+
+# windows code signing certificates
+*.pfx
