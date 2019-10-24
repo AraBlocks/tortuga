@@ -23,10 +23,13 @@
       "target": [
         "nsis",
         "zip"
-      ]
+      ],
+      "certificateFile": "YOURFILE.pfx",
+      "certificatePassword": "YOURPASS"
     },
     "nsis": {
-      "perMachine": true
+      "perMachine": true,
+      "differentialPackage": false
     }
   },
   "main": "main.js",
