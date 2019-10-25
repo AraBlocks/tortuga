@@ -1,3 +1,6 @@
+
+JSON doesn't allow comments, so you're making notes about package.json here
+
 {
   "name": "tortuga",
   "description": "Hello Electron Forge, essentially",
@@ -12,6 +15,9 @@
       "provider": "generic",
       "url": "http://127.0.0.1:8080/"
     },
+
+this is for automatic updates
+
     "mac": {
       "category": "public.app-category.utilities",
       "target": [
@@ -26,10 +32,21 @@
       ],
       "certificateFile": "../your_code_signing_certificate.pfx",
       "certificatePassword": "your_exported_certificate_password"
+
+for windows signing
+put your pfx file one folder up from this one so you don't accidentially check it into git
+and paste your pfx file's password here
+
     },
     "nsis": {
       "perMachine": true,
       "differentialPackage": false
+
+no differential package, please
+this way, nsis won't make a blockmap
+downloads may be bigger, but both build and install are simpler and faster
+and the way asar works blockmaps aren't well optimized, anyways
+
     }
   },
   "main": "main.js",
@@ -40,6 +57,15 @@
     "step2": "electron-builder",
     "step3": "electron-builder --publish always",
     "step4": "electron-builder --win --x64 --ia32"
+
+dir just builds all the files to a directory
+
+
+
+
+
+
+
   },
   "repository": {
     "type": "git",
@@ -58,3 +84,26 @@
     "http-server": "^0.11.1"
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
