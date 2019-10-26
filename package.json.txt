@@ -1,6 +1,53 @@
 
 JSON doesn't allow comments, so you're making notes about package.json here
 
+
+
+
+
+
+
+
+
+(put back for signing)
+
+    "win": {
+      "target": [
+        "nsis",
+        "zip"
+      ],
+      "certificateFile": "../your_code_signing_certificate.pfx",
+      "certificatePassword": "your_exported_certificate_password"
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
   "name": "tortuga",
   "description": "Hello Electron Forge, essentially",
@@ -37,6 +84,21 @@ for windows signing
 put your pfx file one folder up from this one so you don't accidentially check it into git
 and paste your pfx file's password here
 
+
+lots more to test out here:
+https://www.electron.build/configuration/nsis
+
+
+
+
+
+
+
+
+
+
+
+
     },
     "nsis": {
       "perMachine": true,
@@ -59,6 +121,10 @@ and the way asar works blockmaps aren't well optimized, anyways
     "step4": "electron-builder --win --x64 --ia32"
 
 dir just builds all the files to a directory
+
+step2 makes setup.exe 39mb
+step4 makes setup.exe 76mb
+testing automatic update with step2
 
 
 

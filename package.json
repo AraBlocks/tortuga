@@ -1,11 +1,11 @@
 {
-  "name": "tortuga",
+  "name": "Tortuga",
   "description": "Hello Electron Forge, essentially",
   "author": {
     "name": "Team Tortuga"
   },
   "license": "ISC",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "build": {
     "appId": "com.zootella.tortuga",
     "publish": {
@@ -23,13 +23,16 @@
       "target": [
         "nsis",
         "zip"
-      ],
-      "certificateFile": "../your_code_signing_certificate.pfx",
-      "certificatePassword": "your_exported_certificate_password"
+      ]
     },
     "nsis": {
-      "perMachine": true,
-      "differentialPackage": false
+      "oneClick": true,
+      "perMachine": false,
+      "differentialPackage": false,
+      "artifactName": "${productName}-${version}.${ext}",
+      "uninstallDisplayName": "${productName}",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
     }
   },
   "main": "main.js",

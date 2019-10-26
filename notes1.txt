@@ -1,6 +1,18 @@
 
-following steps on:
+
+
+
+
+
+steps to test a real automatic update
+
+modified from:
 https://gist.github.com/iffy/0ff845e8e3f59dbe7eaf2bf24443f104
+
+environment:
+build outside vmware
+install inside vmware
+host update files on real domain name
 
 clone and run:
 $ git clone https://github.com/zootella/tortuga
@@ -9,7 +21,50 @@ $ npm install
 $ npm run start
 
 build:
-$ npm run step4
+delete the dist folder
+set package.json version to 1.0.0
+$ npm run step2
+
+upload:
+dist/tortuga1.0.0.exe -> zootella.com/tortuga/tortuga1.0.0.exe
+
+vmware:
+download and install setup
+
+
+(see where it puts things)
+
+
+
+tortuga installs into:
+"C:\Program Files\tortuga\tortuga.exe"
+"C:\Users\Use\AppData\Local\Programs\tortuga\tortuga.exe"
+
+ara installs into:
+"C:\Users\Use\AppData\Local\ara-file-manager\Ara File Manager.exe"
+
+figure out which settings will get it into appdata local, that's better and matches what's there before
+
+
+
+
+listings look good on both the new and old win10 uninstall lists:
+windows 10, start, settings gear, Apps
+windows 10, cortana, "control panel", view by small icons, Programs and Features
+
+
+
+(test uninstall)
+
+
+
+
+
+
+
+
+
+
 
 copy:
 make wwwroot folder alongside dist, and copy all the files (not the subfolders) there
