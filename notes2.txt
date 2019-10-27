@@ -680,6 +680,44 @@ leads to NuGet/.npkg
 
 
 
+next steps
+>win
+flip nsis back to per user rather than per machine
+go through the sample to simplify and understand it
+>mac
+watch tortuga autoupdate on mac
+>ara
+try building and installing ara with electron-builder for win/mac/linux to joe
+
+
+
+
+
+
+
+checked start menu and desktop shortcuts
+
+checking install location:
+
+tortuga installs to:
+C:\Users\Kevin\AppData\Local\Programs\Tortuga\Tortuga.exe
+
+electron-winstaller put the file manager in:
+C:\Users\Kevin\AppData\Local\ara-file-manager\Ara File Manager.exe
+
+checking uninstall listings:
+
+listings look good on both the new and old win10 uninstall lists:
+windows 10, start, settings gear, Apps
+windows 10, cortana, "control panel", view by small icons, Programs and Features
+
+
+
+
+
+
+
+
 
 
 

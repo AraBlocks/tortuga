@@ -5,12 +5,12 @@
     "name": "Team Tortuga"
   },
   "license": "ISC",
-  "version": "1.0.3",
+  "version": "1.0.7",
   "build": {
     "appId": "com.zootella.tortuga",
     "publish": {
       "provider": "generic",
-      "url": "http://127.0.0.1:8080/"
+      "url": "http://zootella.com/tortuga"
     },
     "mac": {
       "category": "public.app-category.utilities",
@@ -26,23 +26,23 @@
       ]
     },
     "nsis": {
-      "oneClick": true,
-      "perMachine": false,
-      "differentialPackage": false,
       "artifactName": "${productName}-${version}.${ext}",
       "uninstallDisplayName": "${productName}",
-      "createDesktopShortcut": true,
-      "createStartMenuShortcut": true
+      "differentialPackage": false,
+      "oneClick": true,
+      "perMachine": false,
+      "createStartMenuShortcut": true,
+      "createDesktopShortcut": true
     }
   },
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "postinstall": "electron-builder install-app-deps",
-    "step1": "electron-builder --dir",
-    "step2": "electron-builder",
-    "step3": "electron-builder --publish always",
-    "step4": "electron-builder --win --x64 --ia32"
+    "dir": "electron-builder --dir",
+    "build": "electron-builder",
+    "publish": "electron-builder --publish always",
+    "ia32": "electron-builder --win --x64 --ia32"
   },
   "repository": {
     "type": "git",

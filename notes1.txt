@@ -5,14 +5,15 @@
 
 
 steps to test a real automatic update
+all this works without code signing
 
 modified from:
 https://gist.github.com/iffy/0ff845e8e3f59dbe7eaf2bf24443f104
 
 environment:
-build outside vmware
-install inside vmware
-host update files on real domain name
+build on host win10
+upload files to zootella.com
+install on vmware win10
 
 clone and run:
 $ git clone https://github.com/zootella/tortuga
@@ -22,79 +23,29 @@ $ npm run start
 
 build:
 delete the dist folder
-set package.json version to 1.0.0
-$ npm run step2
+increment the version in package.json, and the index.html you'll upload to zootella.com
+$ npm run build, runs electron-builder plain
+upload to zootella.com: (1) Tortuga-1.0.6.exe, and (2) latest.yml, which has the hash of just 1.0.6
+in vmware, restore 'firefox' snapshot, navigate browser to zootella.com/tortuga, download and run the setup exe
+the electron window says "Current version: v1.0.6, Update not available."
 
-upload:
-dist/tortuga1.0.0.exe -> zootella.com/tortuga/tortuga1.0.0.exe
-
-vmware:
-download and install setup
-
-
-(see where it puts things)
-
-
-
-tortuga installs into:
-"C:\Program Files\tortuga\tortuga.exe"
-"C:\Users\Use\AppData\Local\Programs\tortuga\tortuga.exe"
-
-ara installs into:
-"C:\Users\Use\AppData\Local\ara-file-manager\Ara File Manager.exe"
-
-figure out which settings will get it into appdata local, that's better and matches what's there before
+publish and update:
+increment the version in package.json, and the index.html you'll upload to zootella.com
+$ npm run build, runs electron-builder plain
+upload to zootella.com: (1) Tortuga-1.0.7.exe, and (2) latest.yml, which now has the hash of just 1.0.7
+in vmware, run tortuga
+it finds update, downloads, closes, installs, and runs the new version
 
 
 
 
-listings look good on both the new and old win10 uninstall lists:
-windows 10, start, settings gear, Apps
-windows 10, cortana, "control panel", view by small icons, Programs and Features
-
-
-
-(test uninstall)
+>next
+refactor and understand the example
+test the build and update for mac
 
 
 
 
-
-
-
-
-
-
-
-copy:
-make wwwroot folder alongside dist, and copy all the files (not the subfolders) there
-
-start server:
-$ node_modules/.bin/http-server wwwroot/ -p 8080
-
-download and install:
-http://127.0.0.1:8080/tortuga%20Setup%201.0.0.exe
-
-rebuild:
-Update the version in package.json.
-$ npm run step4
-copy over the new files from dist to wwwroot
-
-run:
-open the installed version of the app and see that it updates itself
-
-
-
-
-
-next steps
->win
-flip nsis back to per user rather than per machine
-go through the sample to simplify and understand it
->mac
-watch tortuga autoupdate on mac
->ara
-try building and installing ara with electron-builder for win/mac/linux to joe
 
 
 
