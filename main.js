@@ -10,18 +10,9 @@ const ipcMain       = requireElectron.ipcMain;
 const requireElectronUpdater = require("electron-updater");
 const autoUpdater            = requireElectronUpdater.autoUpdater;
 
-const log = require('electron-log');
-
-//-------------------------------------------------------------------
-// Logging
-//
-// THIS SECTION IS NOT REQUIRED
-//
-// This logging setup is not required for auto-updates to work,
-// but it sure makes debugging easier :)
-//-------------------------------------------------------------------
-autoUpdater.logger = log;//here's where we give electron-updater access to electron-log
-autoUpdater.logger.transports.file.level = 'info';//and tell it we want messages at the "info" level or more important
+const log = require("electron-log");//34k weekly downloads, probably good, what are we using right now?
+autoUpdater.logger = log;//tell electron-updater to use electron-log
+autoUpdater.logger.transports.file.level = "info";//and set it to report "info" level logs and more severe
 
 //-------------------------------------------------------------------
 // Define the menu
