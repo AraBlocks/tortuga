@@ -750,3 +750,15 @@ but understand how to put them into those error cases
 
 
 
+
+app.getVersion() gets it from package.json
+https://electronjs.org/docs/api/app#appgetversion
+
+
+
+
+
+
+
+
+

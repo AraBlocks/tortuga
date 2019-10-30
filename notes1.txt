@@ -42,7 +42,13 @@ or you put your own sanity check, read your own file online next to latest.yml, 
 
 
 
-
+see how it behaves if you mess up the hash in latest.yml
+even if you messed that up, how do you explain it acting differently in two sequential vmware tests, and exactly the same stuff on the server?
+so, put in the following additional safeguards
+-hardcoded delay to not try more frequently than that
+-local settings json for when you last tried
+-your own version sanity check
+or maybe do all this when you do the other autoupdate improvements, actually
 
 
 

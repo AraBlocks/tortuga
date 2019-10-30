@@ -116,7 +116,7 @@ autoUpdater.on('update-downloaded', (ev, info) => {
 })
 
 app.on('ready', function()  {
-
+	whisper("this is app version " + app.getVersion());
 	autoUpdater.checkForUpdates();
 });
 
@@ -158,10 +158,10 @@ function setupWhisperToFolder() {
 	var fileName = "/"+composeWhisperPrefix()+".txt";
 	fs.stat(folderPath, function(err, stats) {//look at where the whisper folder would be
 		if (!err && stats.isDirectory()) {
-			file = fs.createWriteStream(folderPath + fileName, {flags: "w"});//if this works, turn on file
+			file = fs.createWriteStream(folderPath + fileName, {flags: "w"});
 			if (file) {
 				addWhisperLogger(function(s) {
-					file.write(s + "\r\n");
+					file.write(s + "\r\n");//in case you open files made on mac in windows
 				});
 			}
 		}
