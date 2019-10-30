@@ -3,7 +3,15 @@ JSON doesn't allow comments, so you're making notes about package.json here
 
 
 
+"dir": "electron-builder --dir",
+"build": "electron-builder",
+"publish": "electron-builder --publish always",
+"ia32": "electron-builder --win --x64 --ia32"
 
+dir just makes the portable-like directory, the first step towards installers
+build is the default and apparently the only thing you need. makes directory, exe, and zip
+publish is from n the update example, but seems to not be necessary
+ia32 makes a setup.exe that's twice as big in case it gets run on 32 bit windows
 
 
 

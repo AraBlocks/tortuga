@@ -720,4 +720,33 @@ windows 10, cortana, "control panel", view by small icons, Programs and Features
 
 
 
+/*
+
+
+
+the providers are:
+console.log
+electron-logger
+whisper file
+webpage
+whatever ara file manager is using now for logs
+amazon kinesis, later on
+
+
+
+
+
+confirm it updates once when necessary, zero times when not
+
+avoid error cases:
+-updates twice
+-updates in an endless loop
+but understand how to put them into those error cases
+
+
+
+*/
+
+
+
 

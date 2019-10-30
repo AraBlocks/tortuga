@@ -4,6 +4,60 @@
 
 
 
+
+
+
+
+
+abbreviated test:
+
+delete dist folder
+confirm the website index.html has links to versions 6 and 7
+set package.json to 6
+npm run build
+set package.json to 7
+npm run build
+upload both setup exes and latest.yml
+
+reset vmware
+download and install 6
+see that it updates to 7
+
+reset vmware
+download and install 7, see that it doesn't do anything
+
+
+
+
+ugh, it's not deterministic
+two different vmware tests with exactly the same files online yielded a double install the first time
+and a single install the second time
+
+try to get the version number everywhere--how does electron-updater decide that it needs to update?
+as a safety precaution, have a setting so it only tries an update once a day
+
+
+or you put your own sanity check, read your own file online next to latest.yml, match the version number there with what you've got
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 steps to test a real automatic update
 all this works without code signing
 
@@ -47,11 +101,13 @@ test the build and update for mac
 
 
 
+dir and regular is maybe all you need
+see where it makes the asar, you do want to be able to see what went into the asar
 
 
 
 
-
-
+how can you get to the package.json version number in electron main or renderer?
+see how the file manager does it maybe
 
 
