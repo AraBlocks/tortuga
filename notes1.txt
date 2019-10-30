@@ -60,10 +60,6 @@ or maybe do all this when you do the other autoupdate improvements, actually
 
 
 
-
-
-
-
 steps to test a real automatic update
 all this works without code signing
 
@@ -115,5 +111,67 @@ see where it makes the asar, you do want to be able to see what went into the as
 
 how can you get to the package.json version number in electron main or renderer?
 see how the file manager does it maybe
+
+
+
+
+
+
+
+>>>> macOS <<<<
+
+first, just build
+then sign
+then electron updater
+
+back to the docs you go
+https://www.electron.build/auto-update
+https://www.npmjs.com/package/electron-updater
+https://github.com/iffy/electron-updater-example
+https://gist.github.com/iffy/0ff845e8e3f59dbe7eaf2bf24443f104
+
+$ npm run build (on mac)
+it's signing just from the littlstar certificate you've got installed, you don't have it specified anywhere in tortuga files but that doesn't seem to be necessary
+
+
+
+
+
+  "dependencies": {
+    "chokidar": "^3.0.2",
+    "electron-log": "^3.0.6",
+    "electron-updater": "^4.0.14",
+    "jquery": "^3.4.1",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "electron": "^5.0.6",
+    "electron-builder": "^20.44.4",
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

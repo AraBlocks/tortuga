@@ -23,7 +23,9 @@
       "target": [
         "nsis",
         "zip"
-      ]
+      ],
+      "certificateFile": "../your_code_signing_certificate.pfx",
+      "certificatePassword": "your_exported_certificate_password"
     },
     "nsis": {
       "artifactName": "${productName}-${version}.${ext}",
@@ -49,15 +51,14 @@
     "url": "git+https://github.com/zootella/tortuga.git"
   },
   "dependencies": {
-    "chokidar": "^3.0.2",
-    "electron-log": "^3.0.6",
-    "electron-updater": "^4.0.14",
+    "chokidar": "^3.2.3",
+    "electron-log": "^3.0.8",
+    "electron-updater": "^4.2.0",
     "jquery": "^3.4.1",
     "vue": "^2.6.10"
   },
   "devDependencies": {
-    "electron": "^5.0.6",
-    "electron-builder": "^20.44.4",
-    "http-server": "^0.11.1"
+    "electron": "^7.0.0",
+    "electron-builder": "^22.1.0"
   }
 }

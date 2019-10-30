@@ -52,8 +52,8 @@ let win;
 
 function createDefaultWindow() {
 	win = new BrowserWindow({
-		width: 800,
-		height: 1000,
+		width: 1000,
+		height: 700,
 		webPreferences: {
 			nodeIntegration: true
 		}

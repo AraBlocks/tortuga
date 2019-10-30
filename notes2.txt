@@ -760,5 +760,27 @@ https://electronjs.org/docs/api/app#appgetversion
 
 
 
+ugh, here's another thing you have to do:
+https://developer.apple.com/documentation/security/notarizing_your_app_before_distribution
+https://medium.com/@TwitterArchiveEraser/notarize-electron-apps-7a5f988406db
 
+"mac": {
+  "icon": "./build/icon.icns",
+  "hardenedRuntime": true,
+  "entitlements": "./build/entitlements.mac.inherit.plist",
+  "target": ["dmg", "zip"]
+}
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>com.apple.security.cs.allow-jit</key>
+    <true/>
+    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
+    <true/>
+    <key>com.apple.security.cs.allow-dyld-environment-variables</key>
+    <true/>
+  </dict>
+</plist>
 
