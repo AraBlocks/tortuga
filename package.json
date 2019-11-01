@@ -51,14 +51,14 @@
     "url": "git+https://github.com/zootella/tortuga.git"
   },
   "dependencies": {
-    "chokidar": "^3.2.3",
-    "electron-log": "^3.0.8",
-    "electron-updater": "^4.2.0",
-    "jquery": "^3.4.1",
-    "vue": "^2.6.10"
+    "chokidar": "*",
+    "electron-log": "*",
+    "electron-updater": "*",
+    "jquery": "*",
+    "vue": "*"
   },
   "devDependencies": {
-    "electron": "^7.0.0",
-    "electron-builder": "^22.1.0"
+    "electron": "*",
+    "electron-builder": "*"
   }
 }

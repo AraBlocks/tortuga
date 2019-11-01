@@ -784,3 +784,29 @@ https://medium.com/@TwitterArchiveEraser/notarize-electron-apps-7a5f988406db
   </dict>
 </plist>
 
+
+
+
+
+
+
+
+explicitly set the paths to all the things in the /build folder
+so that you know how to move them other places
+
+
+make the .dmg icon and background look better, figure out how to customize that
+
+
+
+
+
+
+
+
+
+
+
+
+
+

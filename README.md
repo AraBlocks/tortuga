@@ -16,6 +16,7 @@ You could probably even turn it into a book. 🤔
 ```
 $ git clone https://github.com/zootella/tortuga
 $ cd tortuga
+delete /dist, /node-modules, and /package-lock.json
 $ npm install
 $ npm run start
 ```

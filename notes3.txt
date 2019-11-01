@@ -1,0 +1,44 @@
+
+
+
+
+
+2019oct
+package.json:
+
+	"dependencies": {
+		"chokidar": "^3.2.3",
+		"electron-log": "^3.0.8",
+		"electron-updater": "^4.2.0",
+		"jquery": "^3.4.1",
+		"vue": "^2.6.10"
+	},
+	"devDependencies": {
+		"electron": "^7.0.0",
+		"electron-builder": "^22.1.0"
+	}
+
+and all of these versions are reflected exactly in package-lock.json
+now you're going to switch all that to *
+package-lock.json grew with all the same versions
+ok, that did what you wanted it to, now you can use this again in a few months and know that you're testing the latest and greatest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
