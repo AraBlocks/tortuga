@@ -53,7 +53,7 @@
   "dependencies": {
     "chokidar": "*",
     "electron-log": "*",
-    "electron-updater": "*",
+    "electron-updater": "^4.2.0",
     "jquery": "*",
     "vue": "*"
   },
