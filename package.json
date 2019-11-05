@@ -5,7 +5,7 @@
     "name": "Little Star Media Inc"
   },
   "license": "ISC",
-  "version": "1.0.8",
+  "version": "1.0.7",
   "build": {
     "appId": "com.ara.one.araFileManager",
     "publish": {
