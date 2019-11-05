@@ -4,7 +4,7 @@ echo ''
 
 rm -rf ./dist
 
-ls -la ./dist
+ls ./dist
 
 echo ''
 echo 'clean.sh ---- done'
