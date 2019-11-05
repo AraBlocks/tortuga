@@ -39,7 +39,7 @@ $ npm run clean
 $ npm run power-wash
 
 $ npm run build
-$ APPLEID=yourid PASSWORD=yourpass npm run build
+$ APPLEID=yourid PASSWORD=yourpassword npm run build
 
 
 //commands to run on mac and win, you don't need scripts for this, better not that way

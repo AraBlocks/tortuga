@@ -1,13 +1,13 @@
 {
   "name": "Tortuga",
-  "description": "Hello Electron Forge, essentially",
+  "description": "A simple but complete Electron boilerplate",
   "author": {
-    "name": "Team Tortuga"
+    "name": "Little Star Media Inc"
   },
   "license": "ISC",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "build": {
-    "appId": "com.zootella.tortuga",
+    "appId": "com.ara.one.araFileManager",
     "publish": {
       "provider": "generic",
       "url": "http://zootella.com/tortuga"
@@ -17,8 +17,16 @@
       "target": [
         "dmg",
         "zip"
-      ]
+      ],
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "entitlements.mac.plist",
+      "entitlementsInherit": "entitlements.mac.plist"
     },
+    "dmg": {
+      "sign": false
+    },
+    "afterSign": "notarize.js",
     "win": {
       "target": [
         "nsis",
@@ -44,7 +52,9 @@
     "dir": "electron-builder --dir",
     "build": "electron-builder",
     "publish": "electron-builder --publish always",
-    "ia32": "electron-builder --win --x64 --ia32"
+    "ia32": "electron-builder --win --x64 --ia32",
+    "clean": "sh ./clean.sh",
+    "power-wash": "sh ./power-wash.sh"
   },
   "repository": {
     "type": "git",
@@ -59,6 +69,7 @@
   },
   "devDependencies": {
     "electron": "*",
-    "electron-builder": "*"
+    "electron-builder": "*",
+    "electron-notarize": "*"
   }
 }
