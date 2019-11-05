@@ -21,7 +21,38 @@ $ npm install
 $ npm run start
 ```
 
+
+```
+notes
+
+
+
+$ git clone https://github.com/zootella/tortuga
+$ cd tortuga
+
+
+$ npm install
+$ npm run start
+
+
+$ npm run clean
+$ npm run power-wash
+
+$ npm run build
+$ APPLEID=yourid PASSWORD=yourpass npm run build
+
+
+//commands to run on mac and win, you don't need scripts for this, better not that way
+
+
+
+
+```
+
+
 ## Roadmap
+
+TODO: as you complete this list, build out notes right here for manual QA to demonstrate and test these abilities
 
 Basic stuff everybody needs:
 

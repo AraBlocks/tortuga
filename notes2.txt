@@ -801,7 +801,23 @@ make the .dmg icon and background look better, figure out how to customize that
 
 
 
+https://www.npmjs.com/package/auto-launch
+https://github.com/Teamwork/node-auto-launch
+4k weekly downloads, pretty goodm, but last commit 2017dec
+for comparison electron-builder is 91k
+"For NW.js and Electron apps, you don't have to specify the path. We guess based on process.execPath."
 
+https://www.npmjs.com/package/electron-notarize
+38k weekly
+
+
+
+
+
+
+
+https://electronjs.org/docs/api/app#event-second-instance
+that might be how you block multiple instances
 
 
 
