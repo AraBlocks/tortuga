@@ -47,15 +47,16 @@
   },
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
     "postinstall": "electron-builder install-app-deps",
+    "start": "electron .",
     "dir": "electron-builder --dir",
     "build": "electron-builder",
     "publish": "electron-builder --publish always",
     "ia32": "electron-builder --win --x64 --ia32",
     "clean": "sh ./clean.sh",
     "power-wash": "sh ./power-wash.sh",
-    "mac": "dist/mac/Tortuga.app/Contents/MacOS/Tortuga"
+    "mac": "dist/mac/Tortuga.app/Contents/MacOS/Tortuga",
+    "win": "dist/win-unpacked/Tortuga.exe"
   },
   "repository": {
     "type": "git",
