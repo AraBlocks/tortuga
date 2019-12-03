@@ -5,7 +5,7 @@
     "name": "Little Star Media Inc"
   },
   "license": "ISC",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "build": {
     "appId": "com.ara.one.araFileManager",
     "publish": {
@@ -54,7 +54,8 @@
     "publish": "electron-builder --publish always",
     "ia32": "electron-builder --win --x64 --ia32",
     "clean": "sh ./clean.sh",
-    "power-wash": "sh ./power-wash.sh"
+    "power-wash": "sh ./power-wash.sh",
+    "mac": "dist/mac/Tortuga.app/Contents/MacOS/Tortuga"
   },
   "repository": {
     "type": "git",
