@@ -1,11 +1,12 @@
 {
-  "name": "multiwin",
+  "name": "Tortuga",
   "version": "1.0.0",
+  "license": "ISC",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "clean": "sh ./clean.sh",
-    "power-wash": "sh ./power-wash.sh"
+    "clean": "sh ./scripts/clean.sh",
+    "power-wash": "sh ./scripts/power-wash.sh"
   },
   "dependencies": {
     "jquery": "^3.4.1",
