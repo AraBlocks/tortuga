@@ -3,137 +3,79 @@ console.log(`process.pid ${process.pid}
 __filename ${__filename}
 __dirname  ${__dirname}`);
 
-//node
+
+// Modules to control application life and create native browser window
+const requireElectron = require("electron");
 const requirePath = require("path");
 
-//electron
-const requireElectron = require("electron");
-const app           = requireElectron.app;
-const BrowserWindow = requireElectron.BrowserWindow;
-const Menu          = requireElectron.Menu
-const protocol      = requireElectron.protocol;
-const ipcMain       = requireElectron.ipcMain;
-
-//random
-const requireElectronLog = require("electron-log");//34k weekly downloads, probably good, what are we using right now?
-
-//custom
-const requireLibrary = require("./library.js");
-const whisper          = requireLibrary.whisper;
-const addWhisperLogger = requireLibrary.addWhisperLogger;
-
-whisper("hi from main.js");
+const {runByNode, runByElectron, runByElectronMain, runByElectronRenderer} = require("./main-library.js");
 
 
 
+doMainStuff();
+function doMainStuff() {
+	console.log("do main stuff...");
 
+	const app = requireElectron.app;
+	const BrowserWindow = requireElectron.BrowserWindow;
 
-let autoUpdater;
-enableUpdater();
-function enableUpdater() {
+	// Keep a global reference of the window object, if you don't, the window will
+	// be closed automatically when the JavaScript object is garbage collected.
+	let mainWindow;
 
-	const requireElectronUpdater = require("electron-updater");
-	autoUpdater = requireElectronUpdater.autoUpdater;
+	function createWindow() {
 
-	autoUpdater.logger = requireElectronLog;//tell electron-updater to use electron-log
-	autoUpdater.logger.transports.file.level = "info";//and set it to report "info" level logs and more severe
+		// Create the browser window.
+		mainWindow = new BrowserWindow({
+			width: 1000,
+			height: 1000,
+			webPreferences: {
+				nodeIntegration: true,
+				preload: requirePath.join(__dirname, "preload.js")
+			}
+		});
 
-	autoUpdater.on('checking-for-update',  ()                => { whisper('Checking for update...');                       });
-	autoUpdater.on('update-available',     (ev, info)        => { whisper('Update available.');                            });
-	autoUpdater.on('update-not-available', (ev, info)        => { whisper('Update not available.');                        });
-	autoUpdater.on('error',                (ev, err)         => { whisper('Error in auto-updater.');                       });
-	autoUpdater.on('download-progress',    (ev, progressObj) => { whisper('Download progress...');                         });
-	autoUpdater.on('update-downloaded',    (ev, info)        => { whisper('Update downloaded; will install in 5 seconds'); });
+		// and load the index.html of the app.
+		mainWindow.loadFile("page.html");
 
-	// For details about these events, see the Wiki:
-	// https://github.com/electron-userland/electron-builder/wiki/Auto-Update#events
-	// The app doesn't need to listen to any events except `update-downloaded`
-	autoUpdater.on('update-downloaded', (ev, info) => {
-		// Wait 5 seconds, then quit and install
-		// You could call autoUpdater.quitAndInstall(); immediately
-		setTimeout(function() {
-			autoUpdater.quitAndInstall();  
-		}, 5000)
-	})
+		// Open the DevTools.
+		mainWindow.webContents.openDevTools();
 
-	app.on('ready', function()  {
-		whisper("this is app version " + app.getVersion());
-		autoUpdater.checkForUpdates();
-	});
-}
+		// Emitted when the window is closed.
+		mainWindow.on("closed", function() {
 
+			// Dereference the window object, usually you would store windows
+			// in an array if your app supports multi windows, this is the time
+			// when you should delete the corresponding element.
+			mainWindow = null;
+		});
+	}
 
+	// This method will be called when Electron has finished
+	// initialization and is ready to create browser windows.
+	// Some APIs can only be used after this event occurs.
+	app.on("ready", createWindow);
 
-let window1;
-
-function createDefaultWindow() {
-	window1 = new BrowserWindow({
-		width: 1000,
-		height: 1000,
-		webPreferences: {
-			nodeIntegration: true,
-			preload: requirePath.join(__dirname, "window.js")
+	// Quit when all windows are closed.
+	app.on("window-all-closed", function() {
+		// On macOS it is common for applications and their menu bar
+		// to stay active until the user quits explicitly with Cmd + Q
+		if (process.platform != "darwin" || true) {//close the whole thing on mac, too
+			app.quit();
 		}
 	});
-	window1.webContents.openDevTools();
-	window1.on("closed", function() { window1 = null; });
-	window1.loadURL(`file://${__dirname}/index.html`);
 
-
-	window1.webContents.once("dom-ready", function() {
-		whisper("WHICHFIRST? dom-ready");
-		addWhisperLogger(function (s) {
-			window1.webContents.send("message", s);
-		});
+	app.on("activate", function() {
+		// On macOS it's common to re-create a window in the app when the
+		// dock icon is clicked and there are no other windows open.
+		if (mainWindow == null) {
+			createWindow();
+		}
 	});
+
+	// In this file you can include the rest of your app's specific main process
+	// code. You can also put them in separate files and require them here.
 }
-
-
-
-
-
-let template = [];
-if (process.platform == "darwin") {
-	const name = app.getName();
-	template.unshift({
-		label: name,
-		submenu: [
-			{ label: 'About ' + name, role: 'about' },
-			{ label: 'Quit', accelerator: 'Command+Q', click() { app.quit(); } },
-		]
-	})
-}
-
-app.on("ready", function() {
-
-	// Create the Menu
-	const menu = Menu.buildFromTemplate(template);
-	Menu.setApplicationMenu(menu);
-
-
-
-
-
-
-
-
-
-
-
-
-	createDefaultWindow();
-});
-app.on("window-all-closed", () => {
-	app.quit();
-});
-
-
-
-
-
-
-
-
 
 
 console.log("main.js/");

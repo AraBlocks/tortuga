@@ -59,19 +59,3 @@ typings/
 
 # next.js build output
 .next
-
-# electron userland builders
-release/
-dist/
-wwwroot/
-
-# windows code signing certificates
-*.pfx
-
-# mac nonsense
-**/.DS_Store
-
-# officially, you should check package-lock.json into git
-# but for this boilerplate, doing so creates a constant mismatch between mac and windows
-# so i'm ignoring it
-package-lock.json
