@@ -2,6 +2,11 @@
   "name": "Tortuga",
   "version": "1.0.0",
   "license": "ISC",
+  "description": "A simple but complete Electron boilerplate",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zootella/tortuga.git"
+  },
   "main": "main.js",
   "scripts": {
     "start": "electron .",
