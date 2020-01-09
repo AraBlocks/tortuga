@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "clean": "sh ./clean.sh",
+    "power-wash": "sh ./power-wash.sh"
   },
   "dependencies": {
     "jquery": "^3.4.1",
