@@ -7,15 +7,11 @@
     "type": "git",
     "url": "git+https://github.com/zootella/tortuga.git"
   },
-  "main": "main.js",
+  "main": "script.js",
   "scripts": {
     "start": "electron .",
     "clean": "sh ./scripts/clean.sh",
     "power-wash": "sh ./scripts/power-wash.sh"
-  },
-  "dependencies": {
-    "jquery": "^3.4.1",
-    "vue": "^2.6.11"
   },
   "devDependencies": {
     "electron": "^7.1.7"
