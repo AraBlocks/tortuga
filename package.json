@@ -1,9 +1,17 @@
 {
-  "name": "multiwin",
+  "name": "Tortuga",
   "version": "1.0.0",
+  "license": "ISC",
+  "description": "A simple but complete Electron boilerplate",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zootella/tortuga.git"
+  },
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "clean": "sh ./scripts/clean.sh",
+    "power-wash": "sh ./scripts/power-wash.sh"
   },
   "dependencies": {
     "jquery": "^3.4.1",
