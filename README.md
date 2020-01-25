@@ -11,31 +11,31 @@ I'm intentionally avoiding CLIs and Webpack to preserve *View, Source* awesomene
 - [ ] **master** This readme, and a blank starting point for the other branches.
 
 Build
-- [ ] **hello** The minimal working code snippets from [Electron Development in a Nutshell](https://www.electronjs.org/docs/tutorial/first-app#electron-development-in-a-nutshell). 🎂 #helloworld
-- [ ] **single** That code, collapsed into as few files as possible. 🤯 #experimental
-- [ ] **drag** Download Electron as a `.zip` and drag in your project files, no binaries or command line required. 🤯 #experimental
-- [ ] **build** Build binaries and installers for Windows, macOS, and Linux
-- [ ] **sign** Sign and notarize on Windows and macOS
-- [ ] **update** Update from a regular web server
-- [ ] **cylinder** Build the Electron app for a public instance with a web server and UI. 🤯 #experimental
+- [ ] **hello** The minimal working code snippets from [Electron Development in a Nutshell](https://www.electronjs.org/docs/tutorial/first-app#electron-development-in-a-nutshell). 🎂 *#helloworld*
+- [ ] **single** That code, collapsed into as few files as possible. 🤯 *#experimental*
+- [ ] **drag** Download Electron as a `.zip` and drag in your project files, no binaries or command line required. 🤯 *#experimental*
+- [ ] **build** Build binaries and installers for Windows, macOS, and Linux.
+- [ ] **sign** Sign and notarize on Windows and macOS.
+- [ ] **update** Update from your own web site.
+- [ ] **cylinder** Build the same Electron app to easily install on a virtual server instance. Now instead of desktop windows, navigate your browser to its UI. 🤯 *#experimental*
 
 Portable
-- [ ] **portable** Run the Electron app entirely from a USB stick plugged into Windows, macOS, or Linux. 🤯 #experimental
-- [ ] **native** Electron with a native module.
-- [ ] **wasm** WebAssembly instead of C.
-- [ ] **xasar** The same `.asar` runs on Windows, macOS, and Linux. 🤯 #experimental
+- [ ] **portable** Run the Electron app entirely from a USB stick plugged into Windows, macOS, or Linux. Carry it from platform to platform. Quit and unplug, and leave no trace. A well-behaved [portable app](https://www.howtogeek.com/110549/the-best-free-portable-apps-for-your-flash-drive-toolkit/) has no interaction with the files, settings, and other running applications on the host computer. 🤯 *#experimental*
+- [ ] **native** Require a native module.
+- [ ] **wasm** Build the native module using WebAssembly instead of C.
+- [ ] **xasar** The same `.asar` runs on Windows, macOS, and Linux. 🤯 *#experimental*
 
 UI
-- [ ] **vue** Electron UI using Vue.js
-- [ ] **multi** Two windows means three processes
+- [ ] **vue** Electron UI using Vue.js.
+- [ ] **multi** Two windows means three processes.
 
 More
-- [ ] **log** Exploring best practices for logging in Electron with [debug](https://www.npmjs.com/package/debug), [electron-log](https://www.npmjs.com/package/electron-log), or something else.
+- [ ] **log** Explore best practices for logging in Electron with [debug](https://www.npmjs.com/package/debug), [electron-log](https://www.npmjs.com/package/electron-log), or something else.
 - [ ] **kinesis** Send logs to an Amazon bucket.
 
 Web
-- [ ] **vfile** Vue in a page from [Getting Started](https://vuejs.org/v2/guide/#Getting-Started). 🎂 #helloworld
-- [ ] **vcli** Vue in a project from [Vue CLI](https://cli.vuejs.org/). 🎂 #helloworld
+- [ ] **vfile** Vue in a page from [Getting Started](https://vuejs.org/v2/guide/#Getting-Started). 🎂 *#helloworld*
+- [ ] **vcli** Vue in a project from [Vue CLI](https://cli.vuejs.org/). 🎂 *#helloworld*
 
 ## Cheat sheet
 
@@ -59,6 +59,7 @@ $ git push -u origin branch1
 $ git checkout branch1
 
 $ git status
+$ git add .
 $ git commit -a -n -m "note"
 $ git push
 
