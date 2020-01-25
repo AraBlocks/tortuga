@@ -2,7 +2,7 @@
   "name": "Tortuga",
   "version": "1.0.0",
   "license": "ISC",
-  "description": "A simple but complete Electron boilerplate",
+  "description": "Electron boilerplates and experiments",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zootella/tortuga.git"
@@ -13,10 +13,7 @@
     "clean": "sh ./scripts/clean.sh",
     "power-wash": "sh ./scripts/power-wash.sh"
   },
-  "dependencies": {
-    "jquery": "^3.4.1",
-    "vue": "^2.6.11"
-  },
+  "dependencies": {},
   "devDependencies": {
     "electron": "^7.1.7"
   }
