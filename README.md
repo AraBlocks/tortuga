@@ -8,11 +8,11 @@ I'm intentionally avoiding CLIs and Webpack to preserve *View, Source* awesomene
 
 ## Branches
 
-- [ ] **master** This readme, and a blank starting point for the other branches.
+- [x] **master** This readme, and a blank starting point for the other branches.
 
 Build
-- [ ] **hello** The minimal working code snippets from [Electron Development in a Nutshell](https://www.electronjs.org/docs/tutorial/first-app#electron-development-in-a-nutshell). 🎂 *#helloworld*
-- [ ] **single** That code, collapsed into as few files as possible. 🤯 *#experimental*
+- [x] **hello** The code snippets from [Electron Development in a Nutshell](https://www.electronjs.org/docs/tutorial/first-app#electron-development-in-a-nutshell). 🎂 *#helloworld*
+- [x] **single** That code, collapsed into as few files as possible. 🤯 *#experimental*
 - [ ] **drag** Download Electron as a `.zip` and drag in your project files, no binaries or command line required. 🤯 *#experimental*
 - [ ] **build** Build binaries and installers for Windows, macOS, and Linux.
 - [ ] **sign** Sign and notarize on Windows and macOS.
