@@ -1,54 +1,71 @@
 # tortuga
 
-Electron apps are all the same!
-Why doesn't someone write a sample project that demonstrates a common shell container for one?
-That would get your new app going from zero to ship-it in a snap. 😁
-It would also neatly [separate concerns](https://en.wikipedia.org/wiki/Separation_of_concerns).
+My growing gallery of Electron boilerplates and experiments.
 
-The example would choose the [electron-builder](https://www.electron.build/) path instead of the many others.
-It would always favor simplicity.
-It would avoid Webpack to preserve *View, Source* awesomeness, and not need a local webserver.
+Examples favor simplicity.
+Most choose the [electron-builder](https://www.electron.build/) path instead of Electron's many others.
+I'm intentionally avoiding CLIs and Webpack to preserve *View, Source* awesomeness, and not need a local webserver.
 
-That'd be cool.
-OK, fine, I'll do it.
-You could probably even turn it into a book. 🤔
+## Branches
+
+- [ ] **master** This readme, and a blank starting point for the other branches.
+
+Build
+- [ ] **hello** The minimal working code snippets from [Electron Development in a Nutshell](https://www.electronjs.org/docs/tutorial/first-app#electron-development-in-a-nutshell). 🎂 #helloworld
+- [ ] **single** That code, collapsed into as few files as possible. 🤯 #experimental
+- [ ] **drag** Download Electron as a `.zip` and drag in your project files, no binaries or command line required. 🤯 #experimental
+- [ ] **build** Build binaries and installers for Windows, macOS, and Linux
+- [ ] **sign** Sign and notarize on Windows and macOS
+- [ ] **update** Update from a regular web server
+- [ ] **cylinder** Build the Electron app for a public instance with a web server and UI. 🤯 #experimental
+
+Portable
+- [ ] **portable** Run the Electron app entirely from a USB stick plugged into Windows, macOS, or Linux. 🤯 #experimental
+- [ ] **native** Electron with a native module.
+- [ ] **wasm** WebAssembly instead of C.
+- [ ] **xasar** The same `.asar` runs on Windows, macOS, and Linux. 🤯 #experimental
+
+UI
+- [ ] **vue** Electron UI using Vue.js
+- [ ] **multi** Two windows means three processes
+
+More
+- [ ] **log** Exploring best practices for logging in Electron with [debug](https://www.npmjs.com/package/debug), [electron-log](https://www.npmjs.com/package/electron-log), or something else.
+- [ ] **kinesis** Send logs to an Amazon bucket.
+
+Web
+- [ ] **vfile** Vue in a page from [Getting Started](https://vuejs.org/v2/guide/#Getting-Started). 🎂 #helloworld
+- [ ] **vcli** Vue in a project from [Vue CLI](https://cli.vuejs.org/). 🎂 #helloworld
+
+## Cheat sheet
 
 ```
 $ git clone https://github.com/zootella/tortuga
 $ cd tortuga
-delete /dist, /node-modules, and /package-lock.json
-$ npm install
-$ npm run start
-```
-
-
-```
-notes
-
-
-
-$ git clone https://github.com/zootella/tortuga
-$ cd tortuga
-
-
-$ npm install
-$ npm run start
-
+$ git checkout branch1
 
 $ npm run clean
 $ npm run power-wash
+$ npm install
 
+$ npm run start
 $ npm run build
 $ APPLEID=yourid PASSWORD=yourpassword npm run build
 
+$ alias graph="git log --all --decorate --oneline --graph"
+$ graph
+$ git branch branch1
+$ git push -u origin branch1
+$ git checkout branch1
 
-//commands to run on mac and win, you don't need scripts for this, better not that way
+$ git status
+$ git commit -a -n -m "note"
+$ git push
 
-
-
-
+$ git status
+$ git pull
+$ git checkout branch1
 ```
-
 
 ## Roadmap
 
@@ -82,13 +99,6 @@ The realm of the advanced, weird and experimental:
 - [ ] **repl:** neo-repl ideas, a command-line style prompt in a page that can show form elements, and runs a command app in the same process with close and refresh
 - [ ] **markup:** really simple markup becomes page ui
 
-Intentionally avoiding:
-
-- big, complex and/or complicated, hyper-automatic and megacool build and deploy pipelines
-- local webserver
-- webpack
-- live update
-
 ## Opinion
 
 I love [boilerplates](https://github.com/electron/electron-quick-start) (rather than [CLIs](https://www.electronforge.io/)).
@@ -108,4 +118,4 @@ Encountering code a CLI generated a few months ago that no longer builds,
 it's often easiest to start over from scratch, running the CLI again, and then moving your code into the new fresh project.
 Growing your project from a simple boilerplate you can understand and from the start is much better.
 
-Check out Electron's list of [awesome boilerplates](https://github.com/sindresorhus/awesome-electron#boilerplates).
+In addition to these, check out Electron's list of [awesome boilerplates](https://github.com/sindresorhus/awesome-electron#boilerplates).
