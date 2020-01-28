@@ -10,17 +10,22 @@ I'm intentionally avoiding CLIs and Webpack to preserve *View, Source* awesomene
 
 - [x] **master** This readme, and a blank starting point for the other branches.
 
-Build
+Hello
 - [x] **hello** The code snippets from [Electron Development in a Nutshell](https://www.electronjs.org/docs/tutorial/first-app#electron-development-in-a-nutshell). 🎂 *#helloworld*
 - [x] **single** That code, collapsed into as few files as possible. 🤯 *#experimental*
 - [ ] **drag** Download Electron as a `.zip` and drag in your project files, no binaries or command line required. 🤯 *#experimental*
-- [ ] **build** Build binaries and installers for Windows, macOS, and Linux.
+
+Build
+- [x] **build** Build binaries and installers for Windows, macOS, and Linux.
 - [ ] **name** Trying a short executable name with a long product name with spaces.
 - [ ] **pretty** Custom graphics for each part of the install process on all the platforms.
-- [ ] **sign** Sign and notarize on Windows and macOS.
+- [x] **sign** Sign and notarize on Windows and macOS.
+- [ ] **cylinder** Build the same Electron app to easily install on a virtual server instance. Now instead of desktop windows, navigate your browser to its UI. 🤯 *#experimental*
+
+Update
 - [x] **update** Update from your own web site.
 - [ ] **updateui** Click to accept a new update.
-- [ ] **cylinder** Build the same Electron app to easily install on a virtual server instance. Now instead of desktop windows, navigate your browser to its UI. 🤯 *#experimental*
+- [ ] **refresh** A page refresh updates the app without even blinking the window. 🤯 *#experimental*
 
 Portable
 - [ ] **portable** Run the Electron app entirely from a USB stick plugged into Windows, macOS, or Linux. Carry it from platform to platform. Quit and unplug, and leave no trace. A well-behaved [portable app](https://www.howtogeek.com/110549/the-best-free-portable-apps-for-your-flash-drive-toolkit/) has no interaction with the files, settings, and other running applications on the host computer. 🤯 *#experimental*
