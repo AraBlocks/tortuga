@@ -1,8 +1,8 @@
 {
   "name": "Tortuga",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "license": "ISC",
-  "description": "Electron boilerplates and experiments",
+  "description": "Electron boilerplates and experiments, branch update",
   "author": {
     "name": "Little Star Media Inc"
   },
@@ -60,6 +60,13 @@
       "perMachine": false,
       "createStartMenuShortcut": true,
       "createDesktopShortcut": true
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "snap",
+        "zip"
+      ]
     }
   },
   "dependencies": {

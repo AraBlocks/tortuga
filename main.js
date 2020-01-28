@@ -124,7 +124,7 @@ app.on("ready", function() {
 	createDefaultWindow();
 });
 app.on("window-all-closed", () => {
-	app.quit();
+	app.quit();//quit on all platforms
 });
 
 
