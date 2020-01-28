@@ -2,19 +2,77 @@
   "name": "Tortuga",
   "version": "1.0.0",
   "license": "ISC",
-  "description": "Electron boilerplates and experiments",
+  "description": "Electron boilerplates and experiments, branch sign",
+  "author": {
+    "name": "Little Star Media Inc"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zootella/tortuga.git"
   },
   "main": "main.js",
   "scripts": {
+    "postinstall": "electron-builder install-app-deps",
     "start": "electron .",
+    "dir": "electron-builder --dir",
+    "build": "electron-builder",
+    "publish": "electron-builder --publish always",
+    "ia32": "electron-builder --win --x64 --ia32",
     "clean": "sh ./scripts/clean.sh",
-    "power-wash": "sh ./scripts/power-wash.sh"
+    "power-wash": "sh ./scripts/power-wash.sh",
+    "mac": "dist/mac/Tortuga.app/Contents/MacOS/Tortuga",
+    "win": "dist\\win-unpacked\\Tortuga.exe"
   },
-  "dependencies": {},
+  "build": {
+    "appId": "com.ara.one.araFileManager",
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "entitlements.mac.plist",
+      "entitlementsInherit": "entitlements.mac.plist"
+    },
+    "dmg": {
+      "sign": false
+    },
+    "afterSign": "notarize.js",
+    "win": {
+      "target": [
+        "nsis",
+        "zip"
+      ],
+      "certificateFile": "../your_code_signing_certificate.pfx",
+      "certificatePassword": "your_exported_certificate_password"
+    },
+    "nsis": {
+      "artifactName": "${productName}-${version}.${ext}",
+      "uninstallDisplayName": "${productName}",
+      "differentialPackage": false,
+      "oneClick": true,
+      "perMachine": false,
+      "createStartMenuShortcut": true,
+      "createDesktopShortcut": true
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "snap",
+        "zip"
+      ]
+    }
+  },
+  "dependencies": {
+    "chokidar": "^3.3.0",
+    "jquery": "^3.4.1",
+    "vue": "^2.6.10"
+  },
   "devDependencies": {
-    "electron": "^7.1.7"
+    "electron": "^7.1.3",
+    "electron-builder": "^21.2.0",
+    "electron-notarize": "^0.2.1"
   }
 }
