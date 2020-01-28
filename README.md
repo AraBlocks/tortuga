@@ -26,8 +26,10 @@ Portable
 - [ ] **xasar** The same `.asar` runs on Windows, macOS, and Linux. 🤯 *#experimental*
 
 UI
-- [ ] **vue** Electron UI using Vue.js.
 - [ ] **multi** Two windows means three processes.
+- [ ] **vue** Electron UI using [Vue.js](https://vuejs.org/).
+- [ ] **vuex** Multiple views of the same state using [Vuex](https://vuex.vuejs.org/).
+- [ ] **spin** Showing updates as fast as the screen can go without slowing down the I/O.
 
 More
 - [ ] **log** Explore best practices for logging in Electron with [debug](https://www.npmjs.com/package/debug), [electron-log](https://www.npmjs.com/package/electron-log), or something else.
