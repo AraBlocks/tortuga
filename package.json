@@ -2,7 +2,7 @@
   "name": "Tortuga",
   "version": "1.0.0",
   "license": "ISC",
-  "description": "Electron boilerplates and experiments",
+  "description": "Electron boilerplates and experiments, branch hello",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zootella/tortuga.git"
