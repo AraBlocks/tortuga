@@ -15,8 +15,11 @@ Build
 - [x] **single** That code, collapsed into as few files as possible. 🤯 *#experimental*
 - [ ] **drag** Download Electron as a `.zip` and drag in your project files, no binaries or command line required. 🤯 *#experimental*
 - [ ] **build** Build binaries and installers for Windows, macOS, and Linux.
+- [ ] **name** Trying a short executable name with a long product name with spaces.
+- [ ] **pretty** Custom graphics for each part of the install process on all the platforms.
 - [ ] **sign** Sign and notarize on Windows and macOS.
-- [ ] **update** Update from your own web site.
+- [x] **update** Update from your own web site.
+- [ ] **updateui** Click to accept a new update.
 - [ ] **cylinder** Build the same Electron app to easily install on a virtual server instance. Now instead of desktop windows, navigate your browser to its UI. 🤯 *#experimental*
 
 Portable
@@ -30,6 +33,8 @@ UI
 - [ ] **vue** Electron UI using [Vue.js](https://vuejs.org/).
 - [ ] **vuex** Multiple views of the same state using [Vuex](https://vuex.vuejs.org/).
 - [ ] **spin** Showing updates as fast as the screen can go without slowing down the I/O.
+- [ ] **repl** In-window command line runs functions and shows state. 🤯 *#experimental*
+- [ ] **mark** Simple text markup in the code becomes styled UI. 🤯 *#experimental*
 
 More
 - [ ] **log** Explore best practices for logging in Electron with [debug](https://www.npmjs.com/package/debug), [electron-log](https://www.npmjs.com/package/electron-log), or something else.
@@ -38,6 +43,11 @@ More
 Web
 - [ ] **vfile** Vue in a page from [Getting Started](https://vuejs.org/v2/guide/#Getting-Started). 🎂 *#helloworld*
 - [ ] **vcli** Vue in a project from [Vue CLI](https://cli.vuejs.org/). 🎂 *#helloworld*
+- [ ] **wcrypt** Light encryption entirely in the page. 🤯 *#experimental*
+- [ ] **upload** The best web upload experience, ever.
+
+Tools
+- [ ] **refresh** Save your page and the browser automatically refreshes.
 
 ## Cheat sheet
 
