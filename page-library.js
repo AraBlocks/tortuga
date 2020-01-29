@@ -28,6 +28,7 @@ exports.Vue = Vue;
 function appendHead(s) {
 	$(s).appendTo("head"); // Have jQuery add it to the end of what's inside <head>
 }
+//TODO with page.html linking style.css, you don't need this, or maybe even jquery
 
 // Register a new global Vue component from the given tag name like <someTag>, template text, and a make method that creates a new model object of data and methods
 function tag(name, t) {
@@ -180,8 +181,10 @@ function arrivalsSlow() { // True if we've got a pair of arrival times that are 
 	return false; // No pairs yet, or all pairs are fast
 }
 
-function logPageText() { logOn = !logOn; } // Just for testing, show what the last 60 arrival times looked like
+
 var logOn = false;
+function getFrameLog() { return logOn; }
+function setFrameLog(b) { logOn = b; } // Just for testing, show what the last 60 arrival times looked like
 function arrivalsLog() {
 	if (logOn) {
 		if (arrivalsStart == 0 && arrivalsCount == arrivalsCapacity) { // First 60, or a new 60 because we're back at the start
@@ -196,7 +199,8 @@ function arrivalsLog() {
 }
 
 exports.PageText = PageText;
-exports.logPageText = logPageText;
+exports.getFrameLog = getFrameLog;
+exports.setFrameLog = setFrameLog;
 
 
 
