@@ -14,6 +14,7 @@ Hello
 - [x] **hello** The code snippets from [Electron Development in a Nutshell](https://www.electronjs.org/docs/tutorial/first-app#electron-development-in-a-nutshell). 🎂 *#helloworld*
 - [x] **single** That code, collapsed into as few files as possible. 🤯 *#experimental*
 - [ ] **drag** Download Electron as a `.zip` and drag in your project files, no binaries or command line required. 🤯 *#experimental*
+- [ ] **cli** Alternatively, try the [Electron Forge CLI](https://www.electronforge.io/), figure out where your code goes, and check out live reload. 🎂 #helloworld
 
 Build
 - [x] **build** Build binaries and installers for Windows, macOS, and Linux.
@@ -25,7 +26,7 @@ Build
 Update
 - [x] **update** Update from your own web site.
 - [ ] **updateui** Click to accept a new update.
-- [ ] **refresh** A page refresh updates the app without even blinking the window. 🤯 *#experimental*
+- [ ] **updatepage** A page refresh updates the app without even blinking the window. 🤯 *#experimental*
 
 Portable
 - [ ] **portable** Run the Electron app entirely from a USB stick plugged into Windows, macOS, or Linux. Carry it from platform to platform. Quit and unplug, and leave no trace. A well-behaved [portable app](https://www.howtogeek.com/110549/the-best-free-portable-apps-for-your-flash-drive-toolkit/) has no interaction with the files, settings, and other running applications on the host computer. 🤯 *#experimental*
@@ -41,7 +42,9 @@ UI
 - [ ] **repl** In-window command line runs functions and shows state. 🤯 *#experimental*
 - [ ] **mark** Simple text markup in the code becomes styled UI. 🤯 *#experimental*
 
-More
+Features
+- [ ] **instance** Block a second instance, receive registered file extensions and custom URI protocols, and allow portable instances.
+- [ ] **settings** Dock the dev tools to the bottom of the window, and they're still there the next time you run. Where is Electron keeping these settings? Exploration of best practices for settings, considering portable and cross-platform use cases.
 - [ ] **log** Explore best practices for logging in Electron with [debug](https://www.npmjs.com/package/debug), [electron-log](https://www.npmjs.com/package/electron-log), or something else.
 - [ ] **kinesis** Send logs to an Amazon bucket.
 
