@@ -11,3 +11,14 @@
 	background: #eee;
 	margin: 4px;
 }
+
+.thinBox {
+	border: 1px solid #ccc;
+	padding: 4px;
+	background: #eee;
+	margin: 4px;
+}
+
+.thinBox p {
+	margin: 2px;
+}
