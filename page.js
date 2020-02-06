@@ -522,8 +522,6 @@ var demo6Tag = tag("<demo6Tag>", {
 	}
 });
 
-var powerOption;
-
 var demo7Tag = tag("<demo7Tag>", {
 	properties: ["m", "i"],
 	template: `
