@@ -49,6 +49,7 @@ Features
 - [ ] **kinesis** Send logs to an Amazon bucket.
 
 Web
+- [ ] **refresh** Save your page and the browser automatically refreshes.
 - [ ] **vue** Vue in a page from [Vue's Getting Started](https://vuejs.org/v2/guide/#Getting-Started). 🎂 *#helloworld*
 - [ ] **vuerouter** Vue Router in a page from [Vue Router's Getting Started](https://router.vuejs.org/guide/). 🎂 *#helloworld*
 - [ ] **vuecli** Vue in a project from [Vue CLI](https://cli.vuejs.org/). 🎂 *#helloworld*
@@ -56,9 +57,6 @@ Web
 - [ ] **zip** Page zips and unzips archive. 🤯 *#experimental*
 - [ ] **deep** Pages renders files from zip archive. 🤯 *#experimental*
 - [ ] **upload** The best web upload experience, ever.
-
-Tools
-- [ ] **refresh** Save your page and the browser automatically refreshes.
 
 ## Cheat sheet
 
