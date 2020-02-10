@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My Page</title>
+		<script src="vue-dev.js"></script>
+	</head>
+	<body>
+
+		<h2>Counter</h2>
+		<div id="appCounter">
+			<p>The message is: {{ message }}</p>
+			<p><button @click="increment">Increment Count</button> {{ count }}</p>
+		</div>
+
+		<h2>Component</h2>
+		<div id="appComponent">
+			<my-component></my-component>
+		</div>
+
+		<script>
+
+			Vue.component("my-component", {
+				props: ["p"],
+				template: `
+					<p>This is a component</p>
+				`
+			});
+
+		</script>
+		<script src="library.js"></script>
+		<script src="app.js"></script>
+	</body>
+</html>
