@@ -47,6 +47,7 @@ Features
 - [ ] **settings** Dock the dev tools to the bottom of the window, and they're still there the next time you run. Where is Electron keeping these settings? Exploration of best practices for settings, considering portable and cross-platform use cases.
 - [ ] **log** Explore best practices for logging in Electron with [debug](https://www.npmjs.com/package/debug), [electron-log](https://www.npmjs.com/package/electron-log), or something else.
 - [ ] **kinesis** Send logs to an Amazon bucket.
+- [ ] **pulse** Detect harmful long-running events in the [Node event loop](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/). 🤯 *#experimental*
 
 Web
 - [ ] **refresh** Save your page and the browser automatically refreshes.
