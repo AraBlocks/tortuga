@@ -14,8 +14,10 @@
     "power-wash": "sh ./scripts/power-wash.sh"
   },
   "dependencies": {
+    "jquery": "^3.5.1",
+    "vue": "^2.6.11"
   },
   "devDependencies": {
-    "electron": "^7.1.7"
+    "electron": "^9.0.1"
   }
 }
