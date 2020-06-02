@@ -38,6 +38,7 @@ UI
 - [ ] **multi** Two windows means three processes.
 - [ ] **vue** Electron UI using [Vue.js](https://vuejs.org/).
 - [ ] **vuex** Multiple views of the same state using [Vuex](https://vuex.vuejs.org/).
+- [x] **vueui** A larger Vue demo with example templates and coalescing updates into animation frames.
 - [ ] **spin** Showing updates as fast as the screen can go without slowing down the I/O.
 - [ ] **repl** In-window command line runs functions and shows state. 🤯 *#experimental*
 - [ ] **mark** Simple text markup in the code becomes styled UI. 🤯 *#experimental*
