@@ -1,0 +1,24 @@
+
+.box {
+	border: 1px solid #ccc;
+	padding: 8px;
+	margin: 4px;
+}
+
+.grayBox {
+	border: 1px solid #ccc;
+	padding: 8px;
+	background: #eee;
+	margin: 4px;
+}
+
+.thinBox {
+	border: 1px solid #ccc;
+	padding: 4px;
+	background: #eee;
+	margin: 4px;
+}
+
+.thinBox p {
+	margin: 2px;
+}
