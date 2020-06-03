@@ -21,15 +21,42 @@
 		<div id="pager"></div>
 		<script type="text/babel">
 
+			console.log("React is a "          + typeof React);
+			console.log("React.useState is a " + typeof React.useState);
+			console.log("ReactDOM is a "       + typeof ReactDOM);
 
-			console.log("hello from the react part of the page");
+			var useState = React.useState;
 
+			function CounterComponent(props) {
+				var [count, setCount] = useState(0);
 
+				function myClick() {
+					setCount(count + 1);
+				}
 
+				return (
+					<div>
+						<p><i>~ counter component ~</i></p>
+						<p>
+							This counter is named "{props.name}".{" "}
+							<button onClick={myClick}>Click Me</button>{" "}
+							You clicked {count} times.
+						</p>
+					</div>
+				);
+			}
 
-
-
-
+			function ReactPage(props) {
+				return (
+					<div>
+						<p><i>~ react page component ~</i></p>
+						<CounterComponent name={"counter1"}/>
+						<CounterComponent name={"counter2"}/>
+					</div>
+				);
+			}
+			var reactPage = ReactPage();
+			ReactDOM.render(reactPage, document.getElementById("pager"));
 
 		</script>
 	</body>
