@@ -3,9 +3,9 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Tortuga</title>
-		<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
-		<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-		<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+		<script src="page_modules/babel.min.js"></script>
+		<script src="page_modules/react.development.js"></script>
+		<script src="page_modules/react-dom.development.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
@@ -19,45 +19,5 @@
 		<div id="page"></div>
 		<h2>React</h2>
 		<div id="pager"></div>
-		<script type="text/babel">
-
-			console.log("React is a "          + typeof React);
-			console.log("React.useState is a " + typeof React.useState);
-			console.log("ReactDOM is a "       + typeof ReactDOM);
-
-			var useState = React.useState;
-
-			function CounterComponent(props) {
-				var [count, setCount] = useState(0);
-
-				function myClick() {
-					setCount(count + 1);
-				}
-
-				return (
-					<div>
-						<p><i>~ counter component ~</i></p>
-						<p>
-							This counter is named "{props.name}".{" "}
-							<button onClick={myClick}>Click Me</button>{" "}
-							You clicked {count} times.
-						</p>
-					</div>
-				);
-			}
-
-			function ReactPage(props) {
-				return (
-					<div>
-						<p><i>~ react page component ~</i></p>
-						<CounterComponent name={"counter1"}/>
-						<CounterComponent name={"counter2"}/>
-					</div>
-				);
-			}
-			var reactPage = ReactPage();
-			ReactDOM.render(reactPage, document.getElementById("pager"));
-
-		</script>
 	</body>
 </html>

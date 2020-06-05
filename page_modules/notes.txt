@@ -1,0 +1,61 @@
+
+Files downloaded 2020 June 4
+
+# Script Tags
+
+Here are script tags for development:
+
+<script src="page_modules/jquery-3.5.1.js"></script>
+<script src="page_modules/babel.min.js"></script>
+<script src="page_modules/react.development.js"></script>
+<script src="page_modules/react-dom.development.js"></script>
+
+And these instead for production:
+
+<script src="page_modules/jquery-3.5.1.min.js"></script>
+<script src="page_modules/babel.min.js"></script>
+<script src="page_modules/react.production.min.js"></script>
+<script src="page_modules/react-dom.production.min.js"></script>
+
+So where did we get those files?
+
+# jQuery
+
+The page at:
+
+https://jquery.com/download/
+
+Links to these files to download:
+
+https://code.jquery.com/jquery-3.5.1.min.js
+https://code.jquery.com/jquery-3.5.1.js
+
+Which you saved as:
+
+page_modules/jquery-3.5.1.js
+page_modules/jquery-3.5.1.min.js
+
+# Babel and React
+
+The pages at:
+
+https://reactjs.org/docs/add-react-to-a-website.html
+https://reactjs.org/docs/cdn-links.html
+
+Have these code snippets:
+
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+
+Which you saved as:
+
+page_modules/babel.min.js
+page_modules/react.development.js
+page_modules/react.production.min.js
+page_modules/react-dom.development.js
+page_modules/react-dom.production.min.js

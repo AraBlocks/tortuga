@@ -2,14 +2,6 @@ console.log("page-library.js\\");
 
 const {runByNode, runByElectron, runByElectronMain, runByElectronRenderer} = require("./main-library.js");
 
-
-
-
-
-
-
-
-
 //   _____           
 //  |_   _|_ _  __ _ 
 //    | |/ _` |/ _` |
@@ -204,10 +196,17 @@ exports.setFrameLog = setFrameLog;
 
 
 
+//you can only say P in page-library.js
+function sayP() {
+	functionInTags();
+	return "P";
+}
+exports.sayP = sayP;
 
-
-
-
+function pageSaysPT() {
+	return `page says "${sayP()}${sayT()}"`;
+}
+exports.pageSaysPT = pageSaysPT;
 
 
 
