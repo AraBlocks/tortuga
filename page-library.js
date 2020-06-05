@@ -197,15 +197,9 @@ exports.setFrameLog = setFrameLog;
 
 
 //you can only say P in page-library.js
-function sayP() {
-	functionInTags();
-	return "P";
-}
+function sayP() { return "P"; }
+function pageSaysPT() { return `page says "${sayP()}${sayT()}"`; }
 exports.sayP = sayP;
-
-function pageSaysPT() {
-	return `page says "${sayP()}${sayT()}"`;
-}
 exports.pageSaysPT = pageSaysPT;
 
 

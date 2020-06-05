@@ -3,9 +3,6 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Tortuga</title>
-		<script src="page_modules/babel.min.js"></script>
-		<script src="page_modules/react.development.js"></script>
-		<script src="page_modules/react-dom.development.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
@@ -19,5 +16,10 @@
 		<div id="page"></div>
 		<h2>React</h2>
 		<div id="pager"></div>
+		<script> require("./page.js"); </script>
+		<script src="page_modules/babel.min.js"></script>
+		<script src="page_modules/react.development.js"></script>
+		<script src="page_modules/react-dom.development.js"></script>
+		<script type="text/babel" src="tags.js"></script>
 	</body>
 </html>

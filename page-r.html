@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Tortuga</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<h1>Vue and React in Electron</h1>
+		<p>
+			This is Node <script>document.write(process.versions.node)</script>,
+			Chrome <script>document.write(process.versions.chrome)</script>,
+			and Electron <script>document.write(process.versions.electron)</script>.
+		</p>
+		<h2>Vue</h2>
+		<div id="page"></div>
+		<h2>React</h2>
+		<div id="pager"></div>
+		<script> require("./page.js"); </script>
+		<script src="page_modules/babel.min.js"></script>
+		<script src="page_modules/react.production.min.js"></script>
+		<script src="page_modules/react-dom.production.min.js"></script>
+		<script type="text/babel" src="tags.js"></script>
+	</body>
+</html>

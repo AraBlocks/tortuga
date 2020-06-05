@@ -3,14 +3,11 @@ console.log(`process.pid ${process.pid}
 __filename ${__filename}
 __dirname  ${__dirname}`);
 
-
 // Modules to control application life and create native browser window
 const requireElectron = require("electron");
 const requirePath = require("path");
 
 const {runByNode, runByElectron, runByElectronMain, runByElectronRenderer} = require("./main-library.js");
-
-
 
 doMainStuff();
 function doMainStuff() {
@@ -30,13 +27,14 @@ function doMainStuff() {
 			width: 1000,
 			height: 1000,
 			webPreferences: {
-				nodeIntegration: true,
-				preload: requirePath.join(__dirname, "preload.js")
+				nodeIntegration: true
 			}
 		});
 
+		var htmlFile = true ? "page-d.html" : "page-r.html";//pages for development or release
+
 		// and load the index.html of the app.
-		mainWindow.loadFile("page.html");
+		mainWindow.loadFile(htmlFile);
 
 		// Open the DevTools.
 		mainWindow.webContents.openDevTools();
@@ -76,6 +74,5 @@ function doMainStuff() {
 	// In this file you can include the rest of your app's specific main process
 	// code. You can also put them in separate files and require them here.
 }
-
 
 console.log("main.js/");
