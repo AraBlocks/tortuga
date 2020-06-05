@@ -1,7 +1,8 @@
 console.log("main.js\\");
-console.log(`process.pid ${process.pid}
+console.log(`main.js - process.pid ${process.pid}
 __filename ${__filename}
 __dirname  ${__dirname}`);
+console.log(`main.js - require ${typeof require}, module ${typeof module}, module.exports ${typeof module.exports}, exports ${typeof exports}`);
 
 // Modules to control application life and create native browser window
 const requireElectron = require("electron");
@@ -31,7 +32,7 @@ function doMainStuff() {
 			}
 		});
 
-		var htmlFile = true ? "page-d.html" : "page-r.html";//pages for development or release
+		var htmlFile = true ? "page-development.html" : "page-production.html";//pages for development or release
 
 		// and load the index.html of the app.
 		mainWindow.loadFile(htmlFile);

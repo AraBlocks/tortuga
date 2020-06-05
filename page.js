@@ -1,7 +1,8 @@
 console.log("page.js\\");
-console.log(`process.pid ${process.pid}
+console.log(`page.js - process.pid ${process.pid}
 __filename ${__filename}
 __dirname  ${__dirname}`);
+console.log(`page.js - require ${typeof require}, module ${typeof module}, module.exports ${typeof module.exports}, exports ${typeof exports}`);
 
 const {runByNode, runByElectron, runByElectronMain, runByElectronRenderer} = require("./main-library.js");
 const {appendHead, tag, idn, PageText, getFrameLog, setFrameLog} = require("./page-library.js");

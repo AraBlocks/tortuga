@@ -1,4 +1,8 @@
 console.log("tags.js\\");
+console.log(`tags.js - process.pid ${process.pid}
+__filename ${__filename}
+__dirname  ${__dirname}`);
+console.log(`tags.js - require ${typeof require}, module ${typeof module}, module.exports ${typeof module.exports}, exports ${typeof exports}`);
 
 /*
 This is the line in the HTML that got us here:
@@ -10,15 +14,15 @@ This is the line in the HTML that got us here:
 * Functions and vars on the margin become global to all the other js files!
 * You can use require() here, and it won't re-run a js file that's already been required.
 * You can't use exports. here, but you don't need to, because everything becomes global.
+
+ok, so actually, elsewhere in node you've got module, module.exports, and exports
+here in tags, you've got module and module.exports, just not exports
+so what you should probably do is wrap this whole file in an anonymous function
+and then use exporty() to try to put things on module.exports
+if you do that, can you import tags.js from app.js?
+which would be weird because you shouldn't require it anywhere, because it needs to go through babel
+so you're leaving this alone for now
 */
-
-console.log("tags.js - React is a "          + typeof React);
-console.log("tags.js - React.useState is a " + typeof React.useState);
-console.log("tags.js - ReactDOM is a "       + typeof ReactDOM);
-
-console.log("tags.js - require is a " + typeof require);//somehow require is here
-console.log("tags.js - exports is "   + typeof exports);//but exports is not
-console.log("tags.js - global is a "  + typeof global);//but exports is not
 
 
 //the renderer already require()d page.js and page-library.js
